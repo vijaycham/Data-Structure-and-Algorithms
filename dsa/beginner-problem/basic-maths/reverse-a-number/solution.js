@@ -8,8 +8,8 @@ Description:
 Stats:
 - Success: true
 - Test Cases: 13
-- Time: 0.047ms
-- Memory: 7128.00KB
+- Time: 0.044ms
+- Memory: 7268.00KB
 */
 
 class Solution {
