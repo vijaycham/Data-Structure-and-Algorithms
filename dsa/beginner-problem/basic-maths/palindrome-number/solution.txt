@@ -1,0 +1,14 @@
+/*
+Problem: Palindrome number
+Problem Link: https://takeuforward.org/plus/dsa/beginner-problem/basic-maths/palindrome-number?tab=submissions
+
+Description:
+You are given an integer n. You need to check whether the number is a palindrome number or not. Return true if it's a palindrome number, otherwise return false.A palindrome number is a number which reads the same both left to right and right to left.
+
+Stats:
+- Success: true
+- Test Cases: 14
+- Time: 0.063ms
+- Memory: 7304.00KB
+*/
+
