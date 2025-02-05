@@ -8,8 +8,8 @@ Given an integer n. You need to recreate the pattern given below for any value o
 Stats:
 - Success: true
 - Test Cases: 22
-- Time: 0.162ms
-- Memory: 12436.00KB
+- Time: 0.115ms
+- Memory: 12784.00KB
 */
 
 class Solution {
