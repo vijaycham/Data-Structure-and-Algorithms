@@ -8,33 +8,22 @@ Given an integer n. You need to recreate the pattern given below for any value o
 Stats:
 - Success: true
 - Test Cases: 22
-- Time: 0.080ms
-- Memory: 8884.00KB
+- Time: 0.044ms
+- Memory: 7288.00KB
 */
 
 class Solution {
-    pattern17(n) {
-for (let i = 0; i < n; i++) {
+    pattern18(n) {
+             // Outer loop for the number of rows.
+        for (let i = 0; i < n; i++) {
             
-            for (let j = 0; j < n - i - 1; j++) {
-                process.stdout.write(" ");
+            /* Inner loop for printing alphabets 
+            from 'A' + n - 1 - i to 'A' + n - 1.*/
+            for (let ch = 'A'.charCodeAt(0) + n - 1 - i; ch <= 'A'.charCodeAt(0) + n - 1; ch++) {
+                process.stdout.write(String.fromCharCode(ch) + " ");
             }
-            let ch = 'A';
-            let breakpoint = Math.floor((2 * i + 1) / 2);
-            for (let j = 1; j <= 2 * i + 1; j++) {
-                process.stdout.write(ch);
-                if (j <= breakpoint)
-                    ch = String.fromCharCode(ch.charCodeAt(0) + 1);
-                else
-                    ch = String.fromCharCode(ch.charCodeAt(0) - 1);
-            }
-
-           
-            for (let j = 0; j < n - i - 1; j++) {
-                process.stdout.write(" ");
-            }
-
-           
+            
+            // Move to the next line for the next row.
             console.log();
         }
     }
