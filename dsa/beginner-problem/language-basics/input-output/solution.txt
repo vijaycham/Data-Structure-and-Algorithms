@@ -1,0 +1,14 @@
+/*
+Problem: Input Output
+Problem Link: https://takeuforward.org/plus/dsa/beginner-problem/language-basics/input-output?tab=submissions
+
+Description:
+Complete the function printNumber which takes an integer input from the user and prints it on the screen.Use:-for C++ : cout << variable_name;for Java : System.out.print();for Python : print()for Javascript : console.log()
+
+Stats:
+- Success: true
+- Test Cases: 25
+- Time: 0.944ms
+- Memory: 52816.00KB
+*/
+
