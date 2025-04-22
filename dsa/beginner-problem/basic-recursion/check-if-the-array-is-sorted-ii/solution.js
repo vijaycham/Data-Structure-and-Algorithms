@@ -1,4 +1,4 @@
-// Solution for: Data, Information & Database
+// Solution for: Check if a Number is Prime or Not
 class Solution {
     checkPrime(num) {
      if(num <=1) return false
