@@ -1,9 +1,25 @@
-// Solution for: Count of odd numbers in array
+// Solution for: Sum of Array Elements
 class Solution {
-    sum(arr,n) {
-       let sum = 0
-       for(let i = 0 ; i < n; i++) {
-          sum = sum + arr[i]
-       } return sum
+    
+    power(x,n) {
+
+        if(n===0) return 1.0;
+
+        if(n===1) return x
+
+        if(n%2 === 1) {
+             return x* this.power(x, n-1)
+        }
+        return this.power(x*x, Math.floor(n/2))
+
+    }
+
+    myPow(x, n) {
+         if (n < 0) {
+            return 1.0/ this.power(x, -n);
+         }
+
+         return this.power(x,n)
+
     }
 }
