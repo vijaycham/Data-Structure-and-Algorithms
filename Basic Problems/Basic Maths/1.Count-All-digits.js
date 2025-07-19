@@ -18,25 +18,30 @@
 
 class Solution {
   countDigit(n) {
-      if(n===0) return 1;
-        let count = Math.floor(Math.log10(n)+1);
-        return count;
-      } 
+    if (n === 0) return 1;
+    let count = Math.floor(Math.log10(n) + 1);
+    return count;
   }
-
-  // Another 
-  class Solution {
-    countDigit(n) {
-        if(n===0) return 1;
-
-        let count = 0
-        while(n>0) {
-            n = Math.floor(n / 10)
-            count++;
-        } return count
-    }
 }
 
+class SolutionAlt {
+  countDigit(n) {
+    if (n === 0) return 1;
+
+    let count = 0;
+    while (n > 0) {
+      n = Math.floor(n / 10);
+      count++;
+    }
+    return count;
+  }
+}
+
+const solution = new Solution();
+console.log("Logarithmic count:", solution.countDigit(234123456));
+
+const solutionAlt = new SolutionAlt();
+console.log("Loop-based count:", solutionAlt.countDigit(234));
 
 // Intuition:
 // Given a number, all the digits in the number can be counted by counting one by one every digit which can be done by extracting the last digit successively from the right until there are no more digits left to extract.
@@ -50,5 +55,4 @@ class Solution {
 // Return 1, because the number of digits in zero is 1.
 // Complexity Analysis:
 // Time Complexity: O(log10(N)) – In every iteration we are dividing N by 10.
-
 // Space Complexity: O(1) – Using a couple of variables i.e., constant space
