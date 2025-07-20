@@ -12,17 +12,24 @@
  * @return {ListNode}
  */
 var getIntersectionNode = function(headA, headB) {
-    // put all node of headB into set
-    let store = new Set()
+    let arrA = []
+    let arrB = []
+
+    while(headA) {
+        arrA.push(headA)
+        headA = headA.next
+    }
     while(headB) {
-        store.add(headB)
+        arrB.push(headB)
         headB = headB.next
     }
 
-    // check headA bode is present in the set
-    while(headA) {
-        if(store.has(headA)){
-            return headA
-        } headA = headA.next
+    for(let i = 0; i < arrA.length; i++){
+        for(let j =0; j < arrB.length; j++) {
+            if(arrA[i] === arrB[j]){
+                return arrA[i]
+            }
+        }
     } return null
+    
 };
