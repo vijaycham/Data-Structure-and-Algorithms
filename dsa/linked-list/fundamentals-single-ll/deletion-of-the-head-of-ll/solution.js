@@ -11,10 +11,7 @@ class ListNode {
 class Solution {
     deleteHead(head) {
       if(!head) return head;
-      
-      let temp = head;
-      head = head.next;
-      temp = null;
-      return head
+      //// Just return the next node, old head will be garbage collected
+      return head.next
     } 
 }
