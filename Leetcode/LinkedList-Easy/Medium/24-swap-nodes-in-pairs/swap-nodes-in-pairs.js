@@ -12,19 +12,10 @@
 var swapPairs = function(head) {
     if(!head ||!head.next) return head
 
-    let dummy = new ListNode()
-        dummy.next = head 
-    let prev = dummy
     let first = head
-    let second = head.next 
-    while(first && first.next) {
-        prev.next = first.next
-        first.next = second.next
-        second.next = first
+    let second = head.next
 
-        prev = first
-        first = prev.next
-        second = first && first.next
-
-    } return dummy.next
+    first.next = swapPairs(second.next)
+    second.next = first 
+    return second
 };
