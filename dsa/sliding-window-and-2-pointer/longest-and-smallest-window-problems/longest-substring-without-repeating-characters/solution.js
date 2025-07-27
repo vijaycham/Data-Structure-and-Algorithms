@@ -1,23 +1,23 @@
 // Solution for: Longest Substring Without Repeating Characters
 class Solution {
-    longestNonRepeatingSubstring(s) {
-        let n = s.length
+  longestNonRepeatingSubstring(s) {
+    let n = s.length;
+    let l = 0,
+      r = 0,
+      maxLen = 0;
+      let hash = new Array(256).fill(-1)
 
-        let maxLen = 0
+    while (r < n) {
+      if (hash[s.charCodeAt(r)] != -1) {
+        l = Math.max(hash[s.charCodeAt(r)] + 1, l);
+      }
 
-        for(let i=0; i<n; i++) {
-            let hash = new Array(256).fill(0);
-        for(let j=i; j < n; j++) {
+      let len = r - l + 1;
 
-            if(hash[s.charCodeAt(j)] === 1) break;
-
-            hash[s.charCodeAt(j)] = 1;
-            let len = j - i+1
-
-            maxLen = Math.max(maxLen, len)
-        }
-
-        }
-        return maxLen
+      maxLen = Math.max(len, maxLen);
+      hash[s.charCodeAt(r)] = r;
+      r++;
     }
+    return maxLen;
+  }
 }
