@@ -1,23 +1,14 @@
+
 var levelOrder = function(root) {
-    if (!root) return [];
-
-    let queue = [root];
-    let result = [];
-
-    while (queue.length > 0) {
-        let levelSize = queue.length;
-        let level = [];
-
-        for (let i = 0; i < levelSize; i++) {
-            let node = queue.shift();
-            level.push(node.val);
-
-            if (node.left) queue.push(node.left);
-            if (node.right) queue.push(node.right);
-        }
-
-        result.push(level);
+    if(!root) return [];
+    let ans = [];
+    let traversal = (curr, level) => {
+        if(!ans[level]) ans[level] = [];
+        ans[level].push(curr.val);
+        curr.left && traversal(curr.left, level + 1);
+        curr.right && traversal(curr.right, level + 1);
     }
-
-    return result;
+    traversal(root, 0);
+    return ans;
 };
+     
