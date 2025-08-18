@@ -12,19 +12,10 @@
  * @return {TreeNode}
  */
 var searchBST = function (root, val) {
+    while (root !== null && root.val !== val) {
+        root = (root.val > val) ? root.left : root.right
 
-    let ans = null
-    let traversal = (curr) => {
-        if (curr.val === val) {
-            ans = curr
-        } else {
-            if (curr.val < val) {
-                curr.right && traversal(curr.right)
-            } else {
-                curr.left && traversal(curr.left)
-            }
-        }
     }
-    traversal(root)
-    return ans
+    return root
+
 };
