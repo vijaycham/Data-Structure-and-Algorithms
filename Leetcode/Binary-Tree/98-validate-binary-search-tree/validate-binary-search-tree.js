@@ -11,15 +11,13 @@
  * @return {boolean}
  */
 var isValidBST = function (root) {
+
     let isBST = (curr, low, high) => {
         if (!curr) return true
+        if (curr.val <= low || curr.val >= high) return false;
 
-        if ((low != null && curr.val <= low) || (high != null && curr.val >= high)) return false
-        let LeftIsBST = isBST(curr.left, low, curr.val)
-        let RightIsBST = isBST(curr.right, curr.val, high)
-
-        return LeftIsBST && RightIsBST
+        return isBST(curr.left, low, curr.val) && isBST(curr.right, curr.val, high)
     }
-    return isBST(root, null, null)
+    return isBST(root, -Infinity, Infinity)
 
 };
