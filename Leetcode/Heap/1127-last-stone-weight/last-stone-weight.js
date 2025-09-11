@@ -3,18 +3,22 @@
  * @return {number}
  */
 var lastStoneWeight = function(stones) {
-    let pq = new MaxPriorityQueue()
+    while (stones.length > 1) {
+        // sort descending to get heaviest stones
+        stones.sort((a, b) => b - a);
 
-    for(let i  = 0; i < stones.length; i++) {
-        pq.enqueue(stones[i])
+        // take two heaviest
+        let y = stones[0];
+        let x = stones[1];
+
+        // remove them
+        stones.splice(0, 2);
+
+        // if not equal, push the difference back
+        if (y !== x) {
+            stones.push(y - x);
+        }
     }
 
-    while(pq.size() > 1) {
-     let y = pq.dequeue()
-     let x = pq.dequeue()
-     if(y-x > 0) {
-        pq.enqueue(y-x)
-     }
-    }
-    return pq.dequeue() || 0 
+    return stones.length === 0 ? 0 : stones[0];
 };
