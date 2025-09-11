@@ -13,13 +13,13 @@ var topKFrequent = function (nums, k) {
 
     //Add element to pq znd rextric to k 
     let pq = new MinPriorityQueue(x => x.freq)
-    for (key in map) {
-        pq.push({ val: key, freq: map[key] })
+    for (let [num, freq] of Object.entries(map)) {
+        pq.enqueue({ val: Number(num), freq })
         if (pq.size() > k) {
-            pq.pop()
+            pq.dequeue()
         }
     }
 
     // return the numbers in arr
-    return pq.toArray().map(x => Number(x.val))
+    return pq.toArray().map(x => (x.val))
 };
