@@ -1,50 +1,22 @@
-/*
-Problem: Check if the number is armstrong
-Problem Link: https://takeuforward.org/plus/dsa/beginner-problem/patterns/pattern-12?tab=submissions
-
-Description:
-You are given an integer n. You need to check whether it is an armstrong number or not. Return true if it is an armstrong number, otherwise return false.An armstrong number is a number which is equal to the sum of the digits of the number, raised to the power of the number of digits.
-
-Stats:
-- Success: true
-- Test Cases: 22
-- Time: 0.176ms
-- Memory: 12452.00KB
-*/
-
+// Solution for: 
 class Solution {
-    countDigit(n) {
-        let count = Math.floor(Math.log10(n)) + 1;
-        return count;
-    }
-    isArmstrong(n) {
+    pattern12(n) {
+     let spaces = 2*(n-1);
 
-     let count = this.countDigit(n);
-        
-        // Variable to store the sum
-        let sum = 0;
-        
-        // Variable to store the copy
-        let copy = n;
-        
-        /* Iterate through each
-        digit of the number */
-        while (n > 0) {
-            
-            // Extract the last digit
-            let lastDigit = n % 10;
-            
-            // Update sum
-            sum += Math.pow(lastDigit, count);
-            
-            /* Remove the last digit
-             from the number */
-            n = Math.floor(n / 10);
+     for (let i=1; i <= n; i++) {
+
+        for(let j=1; j<=i; j++) {
+            process.stdout.write(j.toString());
         }
-        
-        /* Check if the sum of digits raised to the
-        power of k equals the original number */
-        if (sum == copy) return true;
-        return false;
+
+        for(let j=1; j <= spaces; j++ ) {
+            process.stdout.write(" ");
+        }
+        for (let j=i; j >= 1; j--) {
+            process.stdout.write(j.toString());
+        }
+        console.log();
+        spaces -=2;
+     }
     }
 }
