@@ -9,9 +9,8 @@ var twoCitySchedCost = function (costs) {
 
     for (let i = 0; i < n; i++) {
         ans += costs[i][0]
+        ans += costs[i+n][1]
     }
-    for (let i = n; i < 2 * n; i++) {
-        ans += costs[i][1]
-    }
+   
     return ans
 };
