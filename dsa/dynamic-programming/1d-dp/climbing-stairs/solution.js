@@ -1,10 +1,14 @@
 // Solution for: 
 class Solution {
-    climbStairs(n) {
-      let dp = [0,1,2]
-      for(let i = 3; i <= n; i++) {
-        dp[i] = dp[i-1] + dp[i-2]
-      }
-      return dp[n]
+  constructor() {
+    this.store = {};
+  }
+
+  climbStairs(n) {
+    if (n <= 2) return n;
+    if (!this.store[n]) {
+      this.store[n] = this.climbStairs(n - 2) + this.climbStairs(n - 1);
     }
+    return this.store[n];
+  }
 }
