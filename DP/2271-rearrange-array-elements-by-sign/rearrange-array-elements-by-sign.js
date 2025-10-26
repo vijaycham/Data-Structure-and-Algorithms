@@ -5,16 +5,17 @@
 var rearrangeArray = function (nums) {
     const pos = [];
     const neg = [];
-    for (let num of nums) {
+
+    nums.forEach((num) => {
         if (num > 0) pos.push(num);
-        else neg.push(num);
-    }
+        else neg.push(num)
+    })
 
-    const result = [];
+    
     for (let i = 0; i < pos.length; i++) {
-        result.push(pos[i]);
-        result.push(neg[i]);
+        nums[2*i] = pos[i];
+        nums[2*i+1] = neg[i]
     }
 
-    return result;
+    return nums;
 };
