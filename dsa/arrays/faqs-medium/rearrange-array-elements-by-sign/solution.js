@@ -1,18 +1,20 @@
 // Solution for: 
 class Solution {
   rearrangeArray(nums) {
-    let pos = [];
-    let neg = [];
+    const n = nums.length;
+    const ans = new Array(n).fill(0);
 
-    nums.forEach((num) => {
-      if (num > 0) pos.push(num);
-      else neg.push(num);
-    });
-
-    for(let i =0; i< nums.length/2; i++) {
-        nums[2 * i] = pos[i];
-        nums[2* i+1] = neg[i]
+    let posIndex = 0,
+      negIndex = 1;
+    for (let i = 0; i < n; i++) {
+      if (nums[i] < 0) {
+        ans[negIndex] = nums[i];
+        negIndex += 2;
+      } else {
+        ans[posIndex] = nums[i];
+        posIndex += 2;
+      }
     }
-    return nums
+    return ans;
   }
 }
