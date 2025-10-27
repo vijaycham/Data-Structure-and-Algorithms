@@ -2,13 +2,25 @@
  * @param {number[]} nums
  * @return {number}
  */
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
 var findMaxConsecutiveOnes = function (nums) {
-    let max = count = 0
-    for (let num of nums) {
-        if (num === 1) {
+    let n = nums.length
+    let count = 0
+    let max = 0
+
+    for (let i = 0; i < n; i++) {
+        if (nums[i] === 1) {
             count++
-            max = Math.max(count, max)
-        } else count = 0
-    }
-    return max
+            if (count > max) {
+                max = count
+            }
+
+        } else {
+            count = 0
+        }
+
+    } return max
 };
