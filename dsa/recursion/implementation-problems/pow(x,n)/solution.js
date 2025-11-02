@@ -1,15 +1,23 @@
-// Solution for: Fibonacci Number
+// Solution for: 
 class Solution {
-  sum(n) {
-    if (n === 0) return 0;  // Base case: return 0 when the number is 0
-    return (n % 10) + this.sum(Math.floor(n / 10));  // Sum digits recursively
-  }
+    myPow(x, n) {
+        let ans = 1
+        if(n===0 || x=== 1) return 1
 
-  addDigits(num) {
-    if (num < 10) return num;  // Base case: if num is a single digit, return it
+        if(n<0) {
+            x= 1/x
+            n = -n
+        }
 
-    let sumOfDigits = this.sum(num);  // Sum the digits of num
-    if (sumOfDigits < 10) return sumOfDigits;  // If sum is already a single digit, return it
-    return this.addDigits(sumOfDigits);  // Otherwise, recursively reduce the sum
-  }
+        while(n>0) {
+            if(n%2) {
+                ans = ans * x
+                n = n-1
+            } else {
+                x *=x
+                n = n/2
+            }
+        } 
+        return ans 
+    }
 }
