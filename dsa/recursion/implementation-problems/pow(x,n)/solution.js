@@ -1,23 +1,18 @@
 // Solution for: 
 class Solution {
-    myPow(x, n) {
-        let ans = 1
-        if(n===0 || x=== 1) return 1
+  myPower(x, n) {
+    if (n === 0) return 1;
+    if (n === 1) return x;
 
-        if(n<0) {
-            x= 1/x
-            n = -n
-        }
-
-        while(n>0) {
-            if(n%2) {
-                ans = ans * x
-                n = n-1
-            } else {
-                x *=x
-                n = n/2
-            }
-        } 
-        return ans 
+    if (n % 2 === 0) {
+      return this.myPower(x * x, n / 2);
     }
+    return x * this.myPower(x, n - 1);
+  }
+  myPow(x, n) {
+    if (n < 0) {
+      return this.myPower(1 / x, -n);
+    }
+    return this.myPower(x, n);
+  }
 }
