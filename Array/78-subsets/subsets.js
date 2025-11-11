@@ -2,16 +2,20 @@
  * @param {number[]} nums
  * @return {number[][]}
  */
-var subsets = function (arr) {
-    let result = [];
-    let backtrack = (path, start) => {
-        result.push([...path]);
-        for (let i = start; i < arr.length; i++) {
-            path.push(arr[i]);
-            backtrack(path, i + 1);
-            path.pop();
+var subsets = function (nums) {
+    function func(ind, sum, nums, ans) {
+        if (ind === nums.length) {
+            ans.push([...sum]);
+            return;
         }
+        sum.push(nums[ind]);
+        func(ind + 1, sum, nums, ans);
+        sum.pop()
+        func(ind + 1, sum, nums, ans);
     }
-    backtrack([], 0);
-    return result;
+
+    let ans = [];
+    func(0, [], nums, ans);
+    return ans;
+
 };
