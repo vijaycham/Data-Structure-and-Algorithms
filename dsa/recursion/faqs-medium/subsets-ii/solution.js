@@ -1,17 +1,30 @@
 // Solution for: 
 class Solution {
-  subsetSums(nums) {
-    function func(ind, sum, nums, ans) {
-      if (ind === nums.length) {
-        ans.push(sum);
-        return;
-      }
-      func(ind + 1, sum + nums[ind], nums, ans);
-      func(ind + 1, sum, nums, ans);
+  func(ind, curr, nums, ans) {
+    if (ind === nums.length) {
+      ans.push([...curr]);
+      return;
     }
 
-    let ans = [];
-    func(0, 0, nums, ans);
+    // Include
+    curr.push(nums[ind]);
+    this.func(ind + 1, curr, nums, ans);
+    curr.pop();
+    //skip duplicates and exclude function
+    for (let i = ind + 1; i < nums.length; i++) {
+      if (nums[i] !== nums[ind]) {
+        this.func(i, curr, nums, ans);
+        return;
+      }
+    }
+    this.func(nums.length, curr, nums, ans);
+  }
+
+  subsetsWithDup(nums) {
+    const ans = [];
+    const curr = [];
+    nums.sort((a, b) => a - b);
+    this.func(0, curr, nums, ans);
     return ans;
   }
 }
