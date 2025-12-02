@@ -11,25 +11,25 @@
  * @return {_Node}
  */
 
- var cloneGraph = function(root) {
+var cloneGraph = function(root) {
     if (!root) return null;
 
-    const q = [root];
+    const stack = [root];
     const visited = new Map();
     const cloneRoot = new Node(root.val);
     visited.set(root, cloneRoot);
 
-    while (q.length) {
-        const curr = q.shift();
+    while (stack.length) {
+        const curr = stack.shift();
         const cloneCurr = visited.get(curr);
 
         for (const n of curr.neighbors) {
             if (!visited.has(n)) {
                 visited.set(n, new Node(n.val));
-                q.push(n);
+                stack.push(n);
             }
             cloneCurr.neighbors.push(visited.get(n));
         }
     }
     return cloneRoot;
-};       
+};
