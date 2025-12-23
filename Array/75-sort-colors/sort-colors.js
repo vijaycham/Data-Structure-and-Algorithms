@@ -3,5 +3,31 @@
  * @return {void} Do not return anything, modify nums in-place instead.
  */
 var sortColors = function (nums) {
-    nums.sort((a, b) => (a - b))
+    let count0 = 0;
+    let count1 = 0;
+    let count2 = 0;
+
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] === 0) {
+            count0++;
+        } else if (nums[i] === 1) {
+            count1++;
+        } else {
+            count2++;
+        }
+    }
+    // placing 0's
+    for (let i = 0; i < count0; i++) {
+        nums[i] = 0;
+    }
+
+    // placing 1's
+    for (let i = count0; i < count0 + count1; i++) {
+        nums[i] = 1;
+    }
+
+    // placing 2's
+    for (let i = count0 + count1; i < nums.length; i++) {
+        nums[i] = 2;
+    }
 };
