@@ -4,15 +4,17 @@
  */
 var majorityElement = function (nums) {
     let n = nums.length
-    let map = new Map()
-    for (let num of nums) {
-        map.set(num, (map.get(num) || 0) + 1)
-    }
 
-    for (let [key, values] of map.entries()) {
-        if (values > n / 2) {
-            return key
+    for (let i = 0; i < n; i++) {
+        let count = 0
+        for (let j = 0; j < n; j++) {
+            if (nums[i] === nums[j]) {
+                count++
+            }
         }
-    }
-    return -1
+        if (count > n / 2) {
+            return nums[i]
+        }
+    } return -1
+
 };
