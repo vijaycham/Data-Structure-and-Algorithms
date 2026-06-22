@@ -4,7 +4,7 @@
 - **Platform:** Takeuforward
 - **Difficulty:** Unknown
 - **URL:** https://takeuforward.org/plus/dsa/problems/check-if-the-array-is-sorted-i
-- **Date:** 2026-05-25
+- **Date:** 2026-06-22
 
 ## Solution
 
