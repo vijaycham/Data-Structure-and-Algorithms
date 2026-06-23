@@ -3,7 +3,7 @@
 ## Problem Information
 - **Platform:** Leetcode
 - **Difficulty:** Medium
-- **URL:** https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/submissions/1853974914/
+- **URL:** https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/submissions/2043649676/
 - **Date:** 2026-06-23
 
 ## Solution
@@ -21,7 +21,7 @@ var twoSum = function (numbers, target) {
         let currentSum = numbers[left] + numbers[right]
         if (currentSum === target) return [left + 1, right + 1]
         else if (currentSum > target) right--
-        else left--
+        else left++
     }
 };
 ```
